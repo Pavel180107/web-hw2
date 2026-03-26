@@ -62,7 +62,7 @@ cp -r ~/web-hw2/* ~/www/hw2/</pre></div>
             <div class="command"><pre>GET / HTTP/1.0
 Host: u82316.kubsu-dev.ru</pre></div>
             <div class="description">
-                <p>Запрос корневой директории. В корне находится <code>index.php</code>, который возвращает вывод (ошибка БД не влияет на успешность).</p>
+                <p>Запрос корневой директории. В корне находится <code>index.php</code>, который возвращает вывод.</p>
                 <p><strong>Результат (скриншот 1.png):</strong></p>
                 <ul>
                     <li>Статус: <code>HTTP/1.1 200 OK</code></li>
@@ -80,10 +80,10 @@ Host: u82316.kubsu-dev.ru</pre></div>
 Host: u82316.kubsu-dev.ru
 Connection: close</pre></div>
             <div class="description">
-                <p>Запрос <code>index.php</code> из каталога <code>/hw2/</code>. Скрипт возвращает статус 404, но выводит данные.</p>
+                <p>Запрос <code>index.php</code> из каталога <code>/hw2/</code>. Скрипт возвращает статус 404(задан в файле index.php), но выводит данные.</p>
                 <p><strong>Результат (скриншот 2.png):</strong></p>
                 <ul>
-                    <li>Статус: <code>HTTP/1.1 404 Not Found</code></li>
+                    <li>Статус: <code>HTTP/1.1 404 Not Found</code> (задан в файле index.php)</li>
                     <li>Заголовок <code>Content-Type: text/html; charset=UTF-8</code></li>
                     <li>Тело: <code>Array ( ) Привет, мир!</code></li>
                 </ul>
@@ -140,7 +140,7 @@ Connection: close
 
 comment=Hello</pre></div>
             <div class="description">
-                <p>Отправка POST-данных (имитация формы). Скрипт возвращает статус 404, но выводит массив <code>$_POST</code>.</p>
+                <p>Отправка POST-данных (имитация формы). Скрипт возвращает статус 404 (задан в файле index.php), но выводит массив <code>$_POST</code>.</p>
                 <p><strong>Результат (скриншот 5.png):</strong></p>
                 <ul>
                     <li>Статус: <code>HTTP/1.1 404 Not Found</code></li>
@@ -180,7 +180,7 @@ Connection: close</pre></div>
                 <p>Запрос HEAD для получения заголовков. Кодировка указана в поле <code>Content-Type</code>.</p>
                 <p><strong>Результат (скриншот 7.png):</strong></p>
                 <ul>
-                    <li>Статус: <code>HTTP/1.1 404 Not Found</code></li>
+                    <li>Статус: <code>HTTP/1.1 404 Not Found</code>(задан в файле index.php)</li>
                     <li>Заголовок <code>Content-Type: text/html; charset=UTF-8</code> – кодировка <strong>UTF-8</strong></li>
                 </ul>
             </div>
